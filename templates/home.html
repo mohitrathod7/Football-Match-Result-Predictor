@@ -54,9 +54,10 @@
                         <label for="opponent_name">Opponent:</label>
                         <select id="opponent_name" name="opponent_name" required onchange="changeTeamImage('opponent')">
                             {% for team in teams %}
-                                <option value="{{ team }}" data-logo="{{ team|lower|replace(' ', '_') }}.svg">{{ team }}</option>
                                 {% if team == "Chelsea" %}
                                     <option value="{{ team }}" data-logo="{{ team|lower|replace(' ', '_') }}.svg" selected>{{ team }}</option>
+                                {% else %}    
+                                    <option value="{{ team }}" data-logo="{{ team|lower|replace(' ', '_') }}.svg">{{ team }}</option>
                                 {% endif %}
                             {% endfor %}
                         </select>
@@ -99,6 +100,20 @@
             </div>
         </form>   
     </main>
+
+    <script>
+        const logoBaseUrl = "{{ url_for('static', filename='img/team_logos/') }}";
+    
+        function changeTeamImage(section) {
+            const selectElement = document.getElementById(section + '_name');
+            const selectedOption = selectElement.options[selectElement.selectedIndex];
+            const logoFileName = selectedOption.getAttribute('data-logo');
+            const logoElement = document.getElementById(section + '-logo');
+            
+            // Update the image source with the base URL
+            logoElement.src = logoBaseUrl + logoFileName;
+        }
+    </script>
 
     {{ jsfiles() }}
     
