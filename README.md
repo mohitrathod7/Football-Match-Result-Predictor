@@ -18,6 +18,3 @@ This project is a web application that predicts the outcome of English Premier L
 
 ## Watch Full Video
 [Click here](https://github.com/mohitrathod7/Football-Match-Result-Predictor/blob/main/Demo.mp4)
-
-## View Demo
-(https://github.com/mohitrathod7/Football-Match-Result-Predictor/blob/main/Demo.gif)
