@@ -1,0 +1,268 @@
+/* -------------------------------- Navbar -------------------------------- */
+
+nav{
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    top: 0;
+    width: -webkit-fill-available;
+    background: var(--bg--secondary);
+    z-index: 100;
+    box-shadow: hsla(220, 14%, 12%, 0.1) 0px 8px 16px 0px;
+    border: 1px solid hsla(240, 9%, 90%, 1);
+    height: 60px;
+    font-size: 16px;
+    font-weight: 500;
+    color: hsla(21.66, 100%, 47%, 1);
+}
+
+nav ul{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: -webkit-fill-available;
+}
+
+nav ul li{
+    display: flex;
+    align-items: center;
+}
+
+nav ul li .fa-times{
+    display: none;
+}
+
+nav ul li a.title{
+    display: flex;
+    align-items: center;
+}
+
+nav ul li a.title svg{
+    margin-left: 20px;
+    transform: scale(1.2);
+}
+
+nav ul li a.title h1{
+    margin: 0;
+    margin-left: 10px;
+}
+
+nav ul li .signup, nav ul li .login{
+    padding: 5px 10px;
+    font-size: 17px;
+    font-weight: 400;
+    border: 1px solid hsla(21.66, 100%, 47%, 1);
+    cursor: pointer;
+}
+
+nav ul li .signup{
+    border-radius: 5px;
+}
+
+nav ul li .signup:hover{
+    background: hsla(21.66, 70%, 57%, 1);
+    color: white;
+    border-color: #ccc;
+}
+
+nav ul li .login{
+    margin-left: 20px;
+    border: unset;
+}
+
+nav ul li .profile-pic{
+    width: 32px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+nav ul li .profile-pic:hover{
+    box-shadow: 0px 0px 0px 5px rgb(0 0 0 / 10%);
+}
+
+nav .notification-bell{
+    margin-right: 10px;
+    font-size: 30px;
+    color: var(--cl--tertiary-text);
+}
+
+nav .notification-bell:hover{
+    background: rgb(0 0 0 / 15%);
+    border-radius: 50%;
+    box-shadow: 0px 0px 0px 5px rgb(0 0 0 / 15%);
+}
+
+.dummyNav{
+    height: 50px;
+    width: 100%;
+}
+
+nav li .loggedin{
+    display: flex;
+    align-items: center;
+}
+
+nav li .loggedin p{
+    margin-left: 10px;
+    width: max-content;
+    font-size: 16px;
+}
+
+
+/* -------------------------------- Search --------------------------------- */
+
+nav ul li:nth-child(2){
+    width: -webkit-fill-available;
+}
+
+nav ul li .search{
+    display: flex;
+    justify-content: center;
+    width: -webkit-fill-available;
+}
+
+nav ul li .search .search-button{
+    margin-right: 10px;
+}
+
+nav ul li .search .search-bar{
+    max-width: 36%;
+    width: -webkit-fill-available;
+    font-size: 14px;
+}
+
+
+/* -------------------------------- Modal --------------------------------- */
+
+.modal#notifications{
+    position: absolute;
+    top: 50px;
+    right: 40px;
+    display: none;
+    z-index: 1000;
+}
+
+.modal#notifications.show{
+    display: unset;
+}
+
+.modal{
+    border-radius: 10px;
+    background: rgba(229 231 235 / 100%);
+    color: black;
+    box-shadow: 0px 0px 10px 0px rgb(0 0 0 / 50%);
+}
+
+.modal-header{
+    display: flex;
+    padding: 10px;
+    border-bottom: 1px solid rgba(10, 10, 10, 0.2);
+}
+
+.modal-body{
+    display: flex;
+    flex-direction: column;
+    padding: 5px 10px;
+}
+
+.modal ul{
+    display: flex;
+    flex-direction: column;
+}
+
+.modal .material-icons{
+    color: #000;
+}
+
+.modal ul li{
+    padding: 5px 0;
+    width: -webkit-fill-available;
+    cursor: pointer;
+}
+
+.modal ul li p{
+    margin-left: 10px;
+}
+
+.modal-footer{
+    padding: 10px;
+}
+
+/* -------------------------------- Footer -------------------------------- */
+
+footer{
+    background: #EFEFEF;
+}
+
+.accordion{
+    display: flex;
+    padding: 18px 0 0 0;
+    color: #444;
+    cursor: pointer;
+    text-align: left;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 15px;
+}
+
+.accordion h5{
+    font-weight: 700;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: .15em;
+    color: #fff;
+    line-height: 140%;
+}
+
+.panel{
+    padding: 0 18px;
+    display: none;
+    overflow: hidden;
+}
+
+.panel li{
+    line-height: 140%;
+    font-weight: 400;
+    box-sizing: border-box;
+    background-color: transparent;
+    font-size: 13px;
+    letter-spacing: .1em;
+    color: #afafaf;
+    margin-top: 10px;
+}
+
+.panel a:hover{
+    color: #fff;
+}
+
+.menu{
+    margin: 0 20px;
+    padding: 0 0 15px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.menu.social-media-links, .menu.download-links{
+    border-bottom: none !important;
+    pointer-events: none;
+}
+
+.menu.social-media-links .panel{
+    display: flex;
+    justify-content: space-between;
+    width: 170px;
+}
+
+.menu.download-links .panel{
+    width: 250px;
+}
+
+.menu.copy-right{
+    padding: 18px 0;
+    font-size: 16px;
+    font-weight: 400;
+    color: white;
+    opacity: 0.75;
+    text-align: center;
+}
