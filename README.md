@@ -16,5 +16,8 @@ This project is a web application that predicts the outcome of English Premier L
 - **Scikit-learn**: Implemented the Random Forest Classifier for predicting match outcomes.
 - **Flask**: The web framework used to build the web application.
 
+## Watch Full Video
+[Click here](https://github.com/mohitrathod7/Football-Match-Result-Predictor/blob/main/Demo.mp4)
+
 ## View Demo
-[Watch here](https://github.com/mohitrathod7/Football-Match-Result-Predictor/blob/main/Demo.mp4)
+[Demo](https://github.com/mohitrathod7/Football-Match-Result-Predictor/blob/main/Demo.gif)
