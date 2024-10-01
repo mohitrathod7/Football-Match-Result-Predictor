@@ -1,0 +1,106 @@
+{% from "links.html" import links, cssfiles, jsfiles %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>   
+    {{ links()}}
+
+    {{ cssfiles() }}
+
+    <title>EPL - Match Result Predictor</title>
+</head>
+<body>
+    <main>
+        <h1 class="title">English Premier League Match Predictor</h1>
+
+        <form id="prediction-form" method="POST" action="{{ url_for('home') }}">
+            <div>
+                {{ form.csrf_token }}
+                
+                <input type="hidden" name="next" value="{{ request.args.get('next', '') }}" />
+            </div>
+
+            <div class="container" id="top-container">
+                <section id="team">
+                    <img id="team-logo" src="{{ url_for('static', filename='img/team_logos/arsenal.svg') }}" alt="Arsenal">
+
+                    <!-- Team -->
+                    <fieldset>
+                        <label for="team_name">Team:</label>
+                        <select id="team_name" name="team_name" required onchange="changeTeamImage('team')">
+                            {% for team in teams %}
+                                <option value="{{ team }}" data-logo="{{ team|lower|replace(' ', '_') }}.svg">{{ team }}</option>
+                            {% endfor %}
+                        </select>
+                    </fieldset>
+                </section>
+
+                <section id="result">
+                    <div id="prediction-result"></div>  
+
+                    <div id="versus">
+                        <p>V/S</p>
+                    </div> 
+
+                    <canvas id="myDonutChart"></canvas>
+                </section>
+
+                <section id="opponent">
+                    <img id="opponent-logo" src="{{ url_for('static', filename='img/team_logos/chelsea.svg') }}" alt="Chelsea">
+
+                    <!-- Opponent -->
+                    <fieldset>
+                        <label for="opponent_name">Opponent:</label>
+                        <select id="opponent_name" name="opponent_name" required onchange="changeTeamImage('opponent')">
+                            {% for team in teams %}
+                                <option value="{{ team }}" data-logo="{{ team|lower|replace(' ', '_') }}.svg">{{ team }}</option>
+                                {% if team == "Chelsea" %}
+                                    <option value="{{ team }}" data-logo="{{ team|lower|replace(' ', '_') }}.svg" selected>{{ team }}</option>
+                                {% endif %}
+                            {% endfor %}
+                        </select>
+                    </fieldset>
+                </section>
+            </div>
+
+            <div class="container" id="middle-container">
+                <!-- Venue -->
+                <section id="venue">
+                    <fieldset>
+                        <label for="venue_name">Venue:</label>
+                        <select id="venue_name" name="venue_name" required>
+                            <option value="Home">Home</option>
+                            <option value="Away">Away</option>
+                        </select> 
+                    </fieldset>
+                </section>
+
+                <!-- Date -->
+                <section id="date">
+                    <fieldset>
+                        <label for="match_date">Match Date:</label>
+                        <input type="date" id="match_date" name="match_date" required>
+                    </fieldset>
+                </section>
+
+                <!-- Hour -->
+                <section id="hour">
+                    <fieldset>
+                        <label for="match_hour">Match Hour (24-hour format):</label>
+                        <input type="number" id="match_hour" name="match_hour" min="0" max="23" required>
+                    </fieldset>
+                </section>
+            </div>
+
+            <div class="container" id="bottom-container">
+                <!-- Submit Button -->
+                <button type="submit">Predict</button>
+            </div>
+        </form>   
+    </main>
+
+    {{ jsfiles() }}
+    
+</body>
+</html>
